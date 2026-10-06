@@ -1,14 +1,28 @@
-# MechaniX
+<p align="center">
+  <img src="icon.png" width="140">
+</p>
 
-[![Paper](https://img.shields.io/badge/Paper-1.21.1+-blue.svg)](https://papermc.io)
-[![Folia](https://img.shields.io/badge/Folia-supported-brightgreen.svg)](https://papermc.io/software/folia)
-[![Java](https://img.shields.io/badge/Java-21-orange.svg)](https://adoptium.net)
+<h1 align="center">MechaniX</h1>
 
-A Paper/Folia plugin that adds **mechanical gates** and **teleportation portals** built from vanilla Minecraft blocks — no resource pack, no client mods, no NMS.
+<p align="center">
+  <a href="https://papermc.io"><img src="https://img.shields.io/badge/Paper-26.2+-blue.svg" alt="Paper"></a>
+  <a href="https://papermc.io/software/folia"><img src="https://img.shields.io/badge/Folia-supported-brightgreen.svg" alt="Folia"></a>
+  <a href="https://adoptium.net"><img src="https://img.shields.io/badge/Java-25-orange.svg" alt="Java"></a>
+</p>
 
-Build a frame out of fences, walls, or iron bars, click a button, and watch the wall slide away. Or link two frames together with a portal and walk straight through.
+<p align="center">
+  A Paper/Folia plugin that adds <b>mechanical gates</b> and <b>teleportation portals</b><br>
+  built from vanilla Minecraft blocks — no resource pack, no client mods, no NMS.
+</p>
 
-**🌐 [Русская версия](README.ru.md)**
+<p align="center">
+  Build a frame out of fences, walls, or iron bars, click a button, and watch the wall slide away.<br>
+  Or link two frames together with a portal and walk straight through.
+</p>
+
+<p align="center">
+  <b>🌐 <a href="README.ru.md">Русская версия</a></b>
+</p>
 
 ---
 
@@ -47,8 +61,8 @@ Build a frame out of fences, walls, or iron bars, click a button, and watch the 
 
 | Component | Version |
 |---|---|
-| Server | **Paper 1.21.1+** or **Folia 1.21.1+** |
-| Java | **21** |
+| Server | **Paper 26.2+** or **Folia 26.2+** |
+| Java | **25** |
 
 > **Spigot/CraftBukkit are NOT supported.** The plugin uses Paper-only APIs such as `Player#teleportAsync` and Adventure components.
 
@@ -142,61 +156,3 @@ portals:
     fill-density: 1
     drift: 0.25
     spread: 0.1
-```
-
----
-
-## Localization
-
-Messages live in `src/main/resources/lang/`. Two locales ship by default:
-
-- `ru.yml` — Russian
-- `en.yml` — English
-
-To add a language, copy `en.yml`, translate the values, and set `general.locale` to the new file's base name.
-
----
-
-## Building from source
-
-```bash
-git clone https://github.com/goblinthug/MechaniX.git
-cd MechaniX
-mvn clean package
-```
-
-The shaded jar will be at `target/MechaniX-x.y.z.jar`.
-
----
-
-## Compatibility notes
-
-- **Paper 1.20.6 and below**: `Registry.SOUNDS` doesn't exist yet; the plugin only targets **1.21+**.
-- **Spigot / CraftBukkit**: **not supported** — the code uses Paper-only APIs.
-- **Folia**: supported. All region-sensitive work goes through `MechaniX#runTaskAt` / `runTaskAtLater`, which dispatch to the region scheduler when Folia is detected.
-- **Hybrids (Mohist, Arclight)**: untested. Paper API is partially emulated; expect rough edges.
-
----
-
-## Known limitations
-
-- Portals require a **fully closed frame**. Open arches are not supported — the interior-detection algorithm looks for an enclosed air pocket.
-- A portal cannot overlap another portal's interior region.
-- There is no in-game editor for existing portals — delete and recreate if you want to change a frame.
-
----
-
-## Contributing
-
-Issues and pull requests are welcome. If you find a bug, please include:
-
-- Server type and version (Paper/Folia, exact build)
-- Plugin version
-- Full stack trace (if applicable)
-- Steps to reproduce
-
----
-
-## License
-
-Released under the [MIT License](LICENSE).
