@@ -1,14 +1,28 @@
-# MechaniX
+<p align="center">
+  <img src="icon.png" alt="MechaniX icon" width="140" height="140">
+</p>
 
-[![Paper](https://img.shields.io/badge/Paper-1.21.1+-blue.svg)](https://papermc.io)
-[![Folia](https://img.shields.io/badge/Folia-supported-brightgreen.svg)](https://papermc.io/software/folia)
-[![Java](https://img.shields.io/badge/Java-21-orange.svg)](https://adoptium.net)
+<h1 align="center">MechaniX</h1>
 
-Плагин для Paper/Folia, добавляющий **механические ворота** и **порталы телепортации**, построенные из обычных блоков Minecraft — без ресурспаков, клиентских модов и NMS.
+<p align="center">
+  <a href="https://papermc.io"><img src="https://img.shields.io/badge/Paper-26.2+-blue.svg" alt="Paper"></a>
+  <a href="https://papermc.io/software/folia"><img src="https://img.shields.io/badge/Folia-supported-brightgreen.svg" alt="Folia"></a>
+  <a href="https://adoptium.net"><img src="https://img.shields.io/badge/Java-25-orange.svg" alt="Java"></a>
+</p>
 
-Собери рамку из заборов, стенок или железных прутьев, нажми на кнопку — и стена поедет в сторону. Или свяжи две рамки порталом и просто пройди сквозь.
+<p align="center">
+  Плагин для Paper/Folia, добавляющий <b>механические ворота</b> и <b>порталы телепортации</b>,<br>
+  построенные из обычных блоков Minecraft — без ресурспаков, клиентских модов и NMS.
+</p>
 
-**🌐 [English version](README.md)**
+<p align="center">
+  Собери рамку из заборов, стенок или железных прутьев, нажми на кнопку — и стена поедет в сторону.<br>
+  Или свяжи две рамки порталом и просто пройди сквозь.
+</p>
+
+<p align="center">
+  <b>🌐 <a href="README.md">English version</a></b>
+</p>
 
 ---
 
@@ -47,8 +61,8 @@
 
 | Компонент | Версия |
 |---|---|
-| Сервер | **Paper 1.21.1+** или **Folia 1.21.1+** |
-| Java | **21** |
+| Сервер | **Paper 26.2+** или **Folia 26.2+** |
+| Java | **25** |
 
 > **Spigot/CraftBukkit не поддерживаются.** Плагин использует Paper-only API: `Player#teleportAsync`, Adventure и т.д.
 
@@ -171,7 +185,7 @@ mvn clean package
 
 ## Совместимость
 
-- **Paper 1.20.6 и ниже**: `Registry.SOUNDS` ещё не существует — плагин рассчитан на **1.21+**.
+- **Старые версии Paper/Folia**: не поддерживаются. Плагин рассчитан на **Paper/Folia 26.2+**.
 - **Spigot / CraftBukkit**: **не поддерживаются** — код использует Paper-only API.
 - **Folia**: поддерживается. Вся работа с регионами идёт через `MechaniX#runTaskAt` / `runTaskAtLater`, которые автоматически переключаются на region-планировщик при обнаружении Folia.
 - **Гибриды (Mohist, Arclight)**: не тестировалось. Paper API эмулируется частично, возможны шероховатости.
