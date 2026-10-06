@@ -1,0 +1,169 @@
+# MechaniX — main configuration file
+# Language: ru / en (files are in lang/ folder)
+
+general:
+  # Locale to use. Available: ru, en.
+  locale: ru
+  # Restore opened gates after server restart.
+  restore-opened-gates: true
+  # Send feedback messages to actionbar instead of chat.
+  use-actionbar-for-feedback: false
+
+gates:
+  # Delay between opening/closing steps in ticks (20 ticks = 1 second).
+  step-delay-ticks: 4
+  # Opening direction. Allowed: BOTTOM_UP, TOP_DOWN, X_AXIS, Z_AXIS.
+  open-direction: BOTTOM_UP
+  # Cooldown between button/lever clicks in milliseconds.
+  click-cooldown-ms: 500
+  # Maximum zone volume in blocks (crash protection).
+  max-zone-volume: 20000
+  # Maximum zone side length in blocks.
+  max-zone-side: 64
+
+  # Blocks that cannot be part of a gate (skipped during preparation).
+  blacklisted-blocks:
+    - BEDROCK
+    - BARRIER
+    - STRUCTURE_VOID
+    - COMMAND_BLOCK
+    - CHAIN_COMMAND_BLOCK
+    - REPEATING_COMMAND_BLOCK
+
+  # Blocks that must never be broken or replaced by gate logic.
+  protected-blocks:
+    - BEDROCK
+    - SPAWNER
+
+  # Blocks allowed as gate material. If the list is empty, any block is allowed.
+  allowed-blocks:
+    # Wooden fences
+    - OAK_FENCE
+    - SPRUCE_FENCE
+    - BIRCH_FENCE
+    - JUNGLE_FENCE
+    - ACACIA_FENCE
+    - DARK_OAK_FENCE
+    - MANGROVE_FENCE
+    - CHERRY_FENCE
+    - BAMBOO_FENCE
+    - CRIMSON_FENCE
+    - WARPED_FENCE
+    - PALE_OAK_FENCE
+    - NETHER_BRICK_FENCE
+
+    # Metal bars
+    - IRON_BARS
+    - COPPER_BARS
+    - EXPOSED_COPPER_BARS
+    - WEATHERED_COPPER_BARS
+    - OXIDIZED_COPPER_BARS
+    - WAXED_COPPER_BARS
+    - WAXED_EXPOSED_COPPER_BARS
+    - WAXED_WEATHERED_COPPER_BARS
+    - WAXED_OXIDIZED_COPPER_BARS
+
+    # Stone walls
+    - COBBLESTONE_WALL
+    - MOSSY_COBBLESTONE_WALL
+    - STONE_BRICK_WALL
+    - MOSSY_STONE_BRICK_WALL
+    - GRANITE_WALL
+    - DIORITE_WALL
+    - ANDESITE_WALL
+    - SANDSTONE_WALL
+    - RED_SANDSTONE_WALL
+    - BRICK_WALL
+    - PRISMARINE_WALL
+    - NETHER_BRICK_WALL
+    - RED_NETHER_BRICK_WALL
+    - END_STONE_BRICK_WALL
+    - BLACKSTONE_WALL
+    - POLISHED_BLACKSTONE_WALL
+    - POLISHED_BLACKSTONE_BRICK_WALL
+    - COBBLED_DEEPSLATE_WALL
+    - POLISHED_DEEPSLATE_WALL
+    - DEEPSLATE_BRICK_WALL
+    - DEEPSLATE_TILE_WALL
+    - MUD_BRICK_WALL
+    - TUFF_WALL
+    - POLISHED_TUFF_WALL
+    - TUFF_BRICK_WALL
+
+  # Sounds played when gates open/close. Leave empty to disable.
+  sounds:
+    opening: BLOCK_PISTON_EXTEND
+    closing: BLOCK_PISTON_CONTRACT
+    volume: 1.0
+    pitch: 1.0
+
+  # Border visualization for the "Show borders" menu item.
+  border:
+    # Particle type (e.g. DUST, FLAME, END_ROD).
+    particle: DUST
+    # Hex color for DUST particle.
+    color: "#FF0000"
+    # Distance between points along the border.
+    step: 0.25
+    # Total duration of the border animation in ticks.
+    duration-ticks: 100
+    # Interval between border redraws in ticks.
+    period-ticks: 10
+
+permissions:
+  # If false — permission checks are skipped entirely.
+  enabled: true
+  menu: mechanix.menu
+  use: mechanix.use
+  create: mechanix.create
+  bind: mechanix.bind
+  delete: mechanix.delete
+  admin: mechanix.admin
+  portal-use: mechanix.portal.use
+  portal-create: mechanix.portal.create
+  portal-delete: mechanix.portal.delete
+
+limits:
+  # Default maximum number of zones per player.
+  default-max-zones: 5
+  # If true — players with the admin permission ignore the limit.
+  admin-bypass: true
+
+portals:
+  # Allow horizontal portals (XZ plane, lying flat).
+  # false — portals can only be built vertically (XY and ZY planes).
+  # true  — all three orientations are allowed.
+  allow-horizontal: false
+
+  # Cooldown between teleports of the same player (ms).
+  cooldown-ms: 2000
+
+  # Min/max frame sides (in blocks).
+  min-side: 2
+  max-side: 21
+
+  # Show borders of all active portals with particles.
+  show-active-borders: true
+
+  # How often (in ticks) to redraw active portal borders.
+  # 2-3 = continuous look (particles constantly refreshed).
+  # 10+ = visible pulsing.
+  active-border-period: 2
+
+  # Portal particle visuals.
+  particles:
+    # Fill the interior of the portal with particles.
+    fill-enabled: true
+    # Distance between fill points inside the portal (in blocks).
+    # 1.0 = one particle row per block, 0.5 = denser.
+    fill-step: 1.0
+    # How many particles to spawn per border point.
+    # 1 = smooth continuous line (with low active-border-period).
+    border-density: 1
+    # How many particles to spawn per fill point.
+    fill-density: 1
+    # Amplitude of animated drift along the portal normal (in blocks).
+    # 0 = static fill, 0.25-0.5 = noticeable breathing.
+    drift: 0.25
+    # Random offset added to each particle spawn position (in blocks).
+    spread: 0.1
